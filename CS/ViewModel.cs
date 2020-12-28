@@ -26,39 +26,50 @@ namespace MasterDetailInside {
 
     public class TestData : BindableBase
     {
+
+        protected bool _Ready;
         public bool Ready
         {
-            get { return GetProperty(() => Ready); }
-            set { SetProperty(() => Ready, value); }
+            get { return this._Ready; }
+            set { this.SetProperty(ref this._Ready, value, "Ready"); }
         }
+
+        protected string _Text;
         public string Text
         {
-            get { return GetProperty(() => Text); }
-            set { SetProperty(() => Text, value); }
+            get { return this._Text; }
+            set { this.SetProperty(ref this._Text, value, "Text"); }
         }
+
+        protected int _Number;
         public int Number
         {
-            get { return GetProperty(() => Number); }
-            set { SetProperty(() => Number, value); }
+            get { return this._Number; }
+            set { this.SetProperty(ref this._Number, value, "Number"); }
         }
     }
 
     public class ParentTestData : BindableBase
     {
+        protected string _Text;
         public string Text
         {
-            get { return GetProperty(() => Text); }
-            set { SetProperty(() => Text, value); }
+            get { return this._Text; }
+            set { this.SetProperty(ref this._Text, value, "Text"); }
         }
+
+        protected int _Number;
         public int Number
         {
-            get { return GetProperty(() => Number); }
-            set { SetProperty(() => Number, value); }
+            get { return this._Number; }
+            set { this.SetProperty(ref this._Number, value, "Number"); }
         }
+
+        protected ObservableCollection<TestData> _Data;
         public ObservableCollection<TestData> Data
         {
-            get { return GetProperty(() => Data); }
-            set { SetProperty(() => Data, value); }
+            get { return this._Data; }
+            set { this.SetProperty(ref this._Data, value, "Data"); }
         }
     }
 }
