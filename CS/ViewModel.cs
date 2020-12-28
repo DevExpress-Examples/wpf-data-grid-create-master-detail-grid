@@ -7,19 +7,19 @@ using System.Text;
 
 namespace MasterDetailInside {
     public class ViewModel {
-        ObservableCollection<ParentTestData> data;
+        ObservableCollection<ParentTestData> _data;
         public ObservableCollection<ParentTestData> Data {
             get {
-                if(data == null){
-                    data = new ObservableCollection<ParentTestData>();
+                if(_data == null){
+                    _data = new ObservableCollection<ParentTestData>();
                     for(int i = 0; i < 100; i++) {
                         ParentTestData parentTestData = new ParentTestData() { Text = "Master" + i, Number = i, Data = new ObservableCollection<TestData>() };
                         for(int j = 0; j < 50; j++)
                             parentTestData.Data.Add(new TestData() { Text = "Detail" + j + " Master" + i, Number = j, Ready = j % 2 != 0 });
-                        data.Add(parentTestData);
+                        _data.Add(parentTestData);
                     }
                 }
-                return data;
+                return _data;
             }
         }
     }
