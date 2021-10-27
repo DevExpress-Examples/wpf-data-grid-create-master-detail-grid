@@ -1,103 +1,94 @@
-﻿Imports DevExpress.Mvvm
-Imports System
+Imports DevExpress.Mvvm
 Imports System.Collections.Generic
 Imports System.Collections.ObjectModel
-Imports System.Linq
-Imports System.Text
 
 Namespace MasterDetailInside
-	Public Class ViewModel
-		Private _data As ObservableCollection(Of ParentTestData)
-		Public ReadOnly Property Data() As ObservableCollection(Of ParentTestData)
-			Get
-				If _data Is Nothing Then
-					_data = New ObservableCollection(Of ParentTestData)()
-					For i As Integer = 0 To 99
-						Dim parentTestData As New ParentTestData() With {
-							.Text = "Master" & i,
-							.Number = i,
-							.Data = New ObservableCollection(Of TestData)()
-						}
-						For j As Integer = 0 To 49
-							parentTestData.Data.Add(New TestData() With {
-								.Text = "Detail" & j & " Master" & i,
-								.Number = j,
-								.Ready = j Mod 2 <> 0
-							})
-						Next j
-						_data.Add(parentTestData)
-					Next i
-				End If
-				Return _data
-			End Get
-		End Property
-	End Class
 
-	Public Class TestData
-		Inherits BindableBase
+    Public Class ParentDataItem
+        Inherits BindableBase
 
-		Protected _Ready As Boolean
-		Public Property Ready() As Boolean
-			Get
-				Return Me._Ready
-			End Get
-			Set(ByVal value As Boolean)
-				Me.SetProperty(Me._Ready, value, "Ready")
-			End Set
-		End Property
+        Public Property Text As String
+            Get
+                Return GetValue(Of String)()
+            End Get
 
-		Protected _Text As String
-		Public Property Text() As String
-			Get
-				Return Me._Text
-			End Get
-			Set(ByVal value As String)
-				Me.SetProperty(Me._Text, value, "Text")
-			End Set
-		End Property
+            Set(ByVal value As String)
+                SetValue(value)
+            End Set
+        End Property
 
-		Protected _Number As Integer
-		Public Property Number() As Integer
-			Get
-				Return Me._Number
-			End Get
-			Set(ByVal value As Integer)
-				Me.SetProperty(Me._Number, value, "Number")
-			End Set
-		End Property
-	End Class
+        Public Property Number As Integer
+            Get
+                Return GetValue(Of Integer)()
+            End Get
 
-	Public Class ParentTestData
-		Inherits BindableBase
+            Set(ByVal value As Integer)
+                SetValue(value)
+            End Set
+        End Property
 
-		Protected _Text As String
-		Public Property Text() As String
-			Get
-				Return Me._Text
-			End Get
-			Set(ByVal value As String)
-				Me.SetProperty(Me._Text, value, "Text")
-			End Set
-		End Property
+        Public Property Data As ObservableCollection(Of DataItem)
+            Get
+                Return GetValue(Of ObservableCollection(Of DataItem))()
+            End Get
 
-		Protected _Number As Integer
-		Public Property Number() As Integer
-			Get
-				Return Me._Number
-			End Get
-			Set(ByVal value As Integer)
-				Me.SetProperty(Me._Number, value, "Number")
-			End Set
-		End Property
+            Set(ByVal value As ObservableCollection(Of DataItem))
+                SetValue(value)
+            End Set
+        End Property
+    End Class
 
-		Protected _Data As ObservableCollection(Of TestData)
-		Public Property Data() As ObservableCollection(Of TestData)
-			Get
-				Return Me._Data
-			End Get
-			Set(ByVal value As ObservableCollection(Of TestData))
-				Me.SetProperty(Me._Data, value, "Data")
-			End Set
-		End Property
-	End Class
+    Public Class DataItem
+        Inherits BindableBase
+
+        Public Property Ready As Boolean
+            Get
+                Return GetValue(Of Boolean)()
+            End Get
+
+            Set(ByVal value As Boolean)
+                SetValue(value)
+            End Set
+        End Property
+
+        Public Property Text As String
+            Get
+                Return GetValue(Of String)()
+            End Get
+
+            Set(ByVal value As String)
+                SetValue(value)
+            End Set
+        End Property
+
+        Public Property Number As Integer
+            Get
+                Return GetValue(Of Integer)()
+            End Get
+
+            Set(ByVal value As Integer)
+                SetValue(value)
+            End Set
+        End Property
+    End Class
+
+    Public Class ViewModel
+
+        Public Property Data As ObservableCollection(Of ParentDataItem)
+
+        Public Sub New()
+            Data = New ObservableCollection(Of ParentDataItem)(GetData())
+        End Sub
+
+        Private Shared Iterator Function GetData() As IEnumerable(Of ParentDataItem)
+            For i As Integer = 0 To 100 - 1
+                Dim parentTestData = New ParentDataItem() With {.Text = "Master" & i, .Number = i, .Data = New ObservableCollection(Of DataItem)()}
+                For j As Integer = 0 To 50 - 1
+                    parentTestData.Data.Add(New DataItem() With {.Text = "Detail" & j & " Master" & i, .Number = j, .Ready = j Mod 2 <> 0})
+                Next
+
+                Yield parentTestData
+            Next
+        End Function
+    End Class
 End Namespace

@@ -1,4 +1,4 @@
-<Window x:Class="MasterDetailInside.Window1" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+<Window x:Class="MasterDetailInside.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
         xmlns:local="clr-namespace:MasterDetailInside" 
@@ -6,7 +6,7 @@
     <Window.DataContext>
         <local:ViewModel/>
     </Window.DataContext>
-    <dxg:GridControl x:Name="grid" ItemsSource="{Binding Path=Data}" AutoGenerateColumns="AddNew">
+    <dxg:GridControl ItemsSource="{Binding Path=Data}" AutoGenerateColumns="AddNew">
         <dxg:GridControl.DetailDescriptor>
             <dxg:DataControlDetailDescriptor ItemsSourceBinding="{Binding Data}">
                 <dxg:GridControl AutoGenerateColumns="AddNew"/>
