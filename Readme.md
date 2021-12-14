@@ -14,7 +14,7 @@ This example demonstrates how to display detail data within nested grids.
 ## Files to Look At
 
 * [ViewModel.cs](./CS/ViewModel.cs) (VB: [ViewModel.vb](./VB/ViewModel.vb))
-* [Window1.xaml](./CS/Window1.xaml) (VB: [Window1.xaml](./VB/Window1.xaml))
+* [MainWindow.xaml](./CS/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/MainWindow.xaml))
 <!-- default file list end -->
 
 ## Documentation
