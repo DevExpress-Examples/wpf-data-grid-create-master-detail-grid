@@ -1,10 +1,11 @@
-﻿Imports System.Windows
+Imports System.Windows
 
 Namespace MasterDetailInside
+
     ''' <summary>
     ''' Interaction logic for App.xaml
     ''' </summary>
-    Partial Public Class App
+    Public Partial Class App
         Inherits Application
 
     End Class
