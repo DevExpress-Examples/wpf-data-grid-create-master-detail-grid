@@ -5,23 +5,23 @@ Namespace MasterDetailInside
 
     Public Class ViewModel
 
-        Private dataField As ObservableCollection(Of ParentTestData)
+        Private _data As ObservableCollection(Of ParentTestData)
 
         Public ReadOnly Property Data As ObservableCollection(Of ParentTestData)
             Get
-                If dataField Is Nothing Then
-                    dataField = New ObservableCollection(Of ParentTestData)()
+                If _data Is Nothing Then
+                    _data = New ObservableCollection(Of ParentTestData)()
                     For i As Integer = 0 To 100 - 1
                         Dim parentTestData As ParentTestData = New ParentTestData() With {.Text = "Master" & i, .Number = i, .Data = New ObservableCollection(Of TestData)()}
                         For j As Integer = 0 To 50 - 1
                             parentTestData.Data.Add(New TestData() With {.Text = "Detail" & j & " Master" & i, .Number = j, .Ready = j Mod 2 <> 0})
                         Next
 
-                        dataField.Add(parentTestData)
+                        _data.Add(parentTestData)
                     Next
                 End If
 
-                Return dataField
+                Return _data
             End Get
         End Property
     End Class
@@ -29,33 +29,39 @@ Namespace MasterDetailInside
     Public Class TestData
         Inherits BindableBase
 
+        Protected _Ready As Boolean
+
         Public Property Ready As Boolean
             Get
-                Return GetProperty(Function() Me.Ready)
+                Return _Ready
             End Get
 
             Set(ByVal value As Boolean)
-                SetProperty(Function() Ready, value)
+                SetProperty(_Ready, value, "Ready")
             End Set
         End Property
+
+        Protected _Text As String
 
         Public Property Text As String
             Get
-                Return GetProperty(Function() Me.Text)
+                Return _Text
             End Get
 
             Set(ByVal value As String)
-                SetProperty(Function() Text, value)
+                SetProperty(_Text, value, "Text")
             End Set
         End Property
 
+        Protected _Number As Integer
+
         Public Property Number As Integer
             Get
-                Return GetProperty(Function() Me.Number)
+                Return _Number
             End Get
 
             Set(ByVal value As Integer)
-                SetProperty(Function() Number, value)
+                SetProperty(_Number, value, "Number")
             End Set
         End Property
     End Class
@@ -63,33 +69,39 @@ Namespace MasterDetailInside
     Public Class ParentTestData
         Inherits BindableBase
 
+        Protected _Text As String
+
         Public Property Text As String
             Get
-                Return GetProperty(Function() Me.Text)
+                Return _Text
             End Get
 
             Set(ByVal value As String)
-                SetProperty(Function() Text, value)
+                SetProperty(_Text, value, "Text")
             End Set
         End Property
+
+        Protected _Number As Integer
 
         Public Property Number As Integer
             Get
-                Return GetProperty(Function() Me.Number)
+                Return _Number
             End Get
 
             Set(ByVal value As Integer)
-                SetProperty(Function() Number, value)
+                SetProperty(_Number, value, "Number")
             End Set
         End Property
 
+        Protected _Data As ObservableCollection(Of TestData)
+
         Public Property Data As ObservableCollection(Of TestData)
             Get
-                Return GetProperty(Function() Me.Data)
+                Return _Data
             End Get
 
             Set(ByVal value As ObservableCollection(Of TestData))
-                SetProperty(Function() Data, value)
+                SetProperty(_Data, value, "Data")
             End Set
         End Property
     End Class
