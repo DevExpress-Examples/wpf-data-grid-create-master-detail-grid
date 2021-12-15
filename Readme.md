@@ -4,7 +4,7 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 
-# Create a Master-Detail Grid
+# WPF Data Grid - Create Master-Detail Grid
 
 This example demonstrates how to display detail data within nested grids.
 
