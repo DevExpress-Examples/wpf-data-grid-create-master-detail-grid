@@ -21,3 +21,11 @@ This example demonstrates how to display detail data within nested grids.
 
 * [Master-Detail](https://docs.devexpress.com/WPF/119851/controls-and-libraries/data-grid/master-detail/data-grid-in-details) 
 * [Master-Detail Mode Limitations](https://docs.devexpress.com/WPF/11841/controls-and-libraries/data-grid/master-detail/master-detail-mode-limitations)
+
+## More Examples
+
+* [WPF Data Grid - Create a Master-Detail Grid in Code](https://github.com/DevExpress-Examples/wpf-data-grid-create-master-detail-grid-in-code)
+* [WPF Data Grid - Display Detail Content in Tabs](https://github.com/DevExpress-Examples/wpf-data-grid-display-detail-content-in-tabs)
+* [WPF Data Grid - Expand and Collapse Master Rows](https://github.com/DevExpress-Examples/wpf-data-grid-expand-and-collapse-master-rows)
+* [WPF Data Grid - Display Different Details Based on Data in the Master Row](https://github.com/DevExpress-Examples/wpf-data-grid-display-different-details-based-on-master-row-data)
+* [WPF Data Grid - Bind Master and Detail Focused Rows to View Model Properties](https://github.com/DevExpress-Examples/wpf-data-grid-bind-master-and-detail-focused-rows-to-viewmodel-properties)
