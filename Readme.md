@@ -23,7 +23,7 @@ This example demonstrates how to display detail data within nested grids.
 * [Master-Detail](https://docs.devexpress.com/WPF/119851/controls-and-libraries/data-grid/master-detail/data-grid-in-details) 
 * [Master-Detail Mode Limitations](https://docs.devexpress.com/WPF/11841/controls-and-libraries/data-grid/master-detail/master-detail-mode-limitations)
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=wpf-data-grid-create-master-detail-grid&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=wpf-data-grid-create-master-detail-grid&~~~was_helpful=no)
 
